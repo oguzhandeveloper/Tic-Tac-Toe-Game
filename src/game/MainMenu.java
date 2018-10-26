@@ -27,16 +27,17 @@ public class MainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnLocalNetwork = new javax.swing.JButton();
+        btnComputerAI = new javax.swing.JButton();
         btnSameWindowGame = new javax.swing.JButton();
+        btnLocalNetwork = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        btnLocalNetwork.setText("Play at Local Network");
-        btnLocalNetwork.addActionListener(new java.awt.event.ActionListener() {
+        btnComputerAI.setText("Play Against The Computer");
+        btnComputerAI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLocalNetworkActionPerformed(evt);
+                btnComputerAIActionPerformed(evt);
             }
         });
 
@@ -47,47 +48,56 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
+        btnLocalNetwork.setText("Play at Local Network");
+        btnLocalNetwork.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLocalNetworkActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(119, Short.MAX_VALUE)
-                .addComponent(btnLocalNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(113, 113, 113))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(120, Short.MAX_VALUE)
+                .addContainerGap(120, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSameWindowGame, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(112, 112, 112)))
+                    .addComponent(btnComputerAI, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLocalNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(112, 112, 112))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(123, 123, 123)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addComponent(btnSameWindowGame, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(btnLocalNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(129, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(53, 53, 53)
-                    .addComponent(btnSameWindowGame, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(199, Short.MAX_VALUE)))
+                .addGap(28, 28, 28)
+                .addComponent(btnComputerAI, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     GameFrame gameSame;
-    private void btnLocalNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLocalNetworkActionPerformed
-       GameFrameSocket gf=new GameFrameSocket("Tic Tac Toe",this);
-       GamePanelSocket gp=new GamePanelSocket(gf);
-       gf.game=gp;
-       gf.main();
+    private void btnComputerAIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComputerAIActionPerformed
+       GameFrameAI game = new GameFrameAI("Tic Tac Toe", this);
+       game.main();
         
-    }//GEN-LAST:event_btnLocalNetworkActionPerformed
+    }//GEN-LAST:event_btnComputerAIActionPerformed
 
     private void btnSameWindowGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSameWindowGameActionPerformed
        this.CreateSameComputerGame();
     }//GEN-LAST:event_btnSameWindowGameActionPerformed
+
+    private void btnLocalNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLocalNetworkActionPerformed
+        GameFrameSocket gf=new GameFrameSocket("Tic Tac Toe",this);
+       GamePanelSocket gp=new GamePanelSocket(gf);
+       gf.game=gp;
+       gf.main();
+    }//GEN-LAST:event_btnLocalNetworkActionPerformed
     
     public void CreateSameComputerGame(){
          gameSame = new GameFrame("Tic Tac Toe",this);
@@ -130,6 +140,7 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnComputerAI;
     private javax.swing.JButton btnLocalNetwork;
     private javax.swing.JButton btnSameWindowGame;
     // End of variables declaration//GEN-END:variables
