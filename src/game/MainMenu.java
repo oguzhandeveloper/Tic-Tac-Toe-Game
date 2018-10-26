@@ -59,51 +59,56 @@ public class MainMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(120, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSameWindowGame, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnComputerAI, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLocalNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(112, 112, 112))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(btnLocalNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnComputerAI, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSameWindowGame, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(76, 76, 76))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(51, Short.MAX_VALUE)
                 .addComponent(btnSameWindowGame, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(btnLocalNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(btnComputerAI, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59))
+                .addGap(69, 69, 69))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     GameFrame gameSame;
+    GameFrameAI gameComputer;
     private void btnComputerAIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComputerAIActionPerformed
-       GameFrameAI game = new GameFrameAI("Tic Tac Toe", this);
-       game.main();
-        
+        CreateAIComputerGame();
+
     }//GEN-LAST:event_btnComputerAIActionPerformed
 
     private void btnSameWindowGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSameWindowGameActionPerformed
-       this.CreateSameComputerGame();
+        this.CreateSameComputerGame();
     }//GEN-LAST:event_btnSameWindowGameActionPerformed
 
     private void btnLocalNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLocalNetworkActionPerformed
-        GameFrameSocket gf=new GameFrameSocket("Tic Tac Toe",this);
-       GamePanelSocket gp=new GamePanelSocket(gf);
-       gf.game=gp;
-       gf.main();
+        GameFrameSocket gf = new GameFrameSocket("Tic Tac Toe", this);
+        GamePanelSocket gp = new GamePanelSocket(gf);
+        gf.game = gp;
+        gf.main();
     }//GEN-LAST:event_btnLocalNetworkActionPerformed
-    
-    public void CreateSameComputerGame(){
-         gameSame = new GameFrame("Tic Tac Toe",this);
+
+    public void CreateAIComputerGame() {
+        gameComputer = new GameFrameAI("Tic Tac Toe", this);
+        gameComputer.main();
+    }
+
+    public void CreateSameComputerGame() {
+        gameSame = new GameFrame("Tic Tac Toe", this);
         gameSame.main();
     }
-    
+
     /**
      * @param args the command line arguments
      */

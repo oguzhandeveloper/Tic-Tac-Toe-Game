@@ -102,7 +102,7 @@ public class GamePanel extends JPanel implements MouseListener {
     
     //Player Time Control with Timer Object
     public void TimerAction() {
-        timeForPlayers = new Timer(500, new ActionListener() {
+        timeForPlayers = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (playerOneTime <= 0 && !playerOneFinish) {

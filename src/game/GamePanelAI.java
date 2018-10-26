@@ -86,9 +86,11 @@ public class GamePanelAI extends JPanel implements MouseListener {
         g.fillRect(0, (this.getHeight() / 3) * 2, this.getWidth(), 2);
         
         
-        PlayComputer();
+        
         DrawPlayer(g);
         GameOver();
+        
+        PlayComputer();
 
     }
 
@@ -105,7 +107,7 @@ public class GamePanelAI extends JPanel implements MouseListener {
 
     //Player Time Control with Timer Object
     public void TimerAction() {
-        timeForPlayers = new Timer(500, new ActionListener() {
+        timeForPlayers = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (playerOneTime <= 0 && !playerOneFinish) {
@@ -116,7 +118,7 @@ public class GamePanelAI extends JPanel implements MouseListener {
                 if (playerTwoTime <= 0 && !playerTwoFinish) {
                     playerTwoTime = 0;
                     playerTwoFinish = true;
-                    mainWindow.PanelEnable(false, "Player 1 Has Expired.");
+                    mainWindow.PanelEnable(false, "Computer Has Expired.");
                 }
 
                 if (player1 && playerOneTime != 0) {
@@ -352,7 +354,7 @@ public class GamePanelAI extends JPanel implements MouseListener {
             timeForPlayers.stop();
             timeForPlayers = null;
             StartBegin();
-            mainWindow.PanelEnable(false, "Winner Player 2");
+            mainWindow.PanelEnable(false, "Winner Computer");
         }
         if (!hasEmpty()) {
             timeForPlayers.stop();

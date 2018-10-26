@@ -114,15 +114,14 @@ public class GameFrameAI extends JFrame {
 
             if (i == JOptionPane.NO_OPTION) {
                 try {
-                    mainMenu.gameSame.dispose();
-
+                    mainMenu.gameComputer.dispose();
                 } catch (Exception e) {
                     //System.out.println(e);
                 }
 
             } else {
-                mainMenu.gameSame.dispose();
-                mainMenu.CreateSameComputerGame();
+                mainMenu.gameComputer.dispose();
+                mainMenu.CreateAIComputerGame();
             }
         } else //Eger oyuncu cikmak isterse bu bloga girer
         {
@@ -130,14 +129,14 @@ public class GameFrameAI extends JFrame {
 
             if (i == JOptionPane.YES_OPTION) {
                 try {
-                    mainMenu.gameSame.dispose();
+                    mainMenu.gameComputer.dispose();
                 } catch (Exception e) {
                     //System.out.println(e);
                 }
 
             } else {
-                mainMenu.gameSame.dispose();
-                mainMenu.CreateSameComputerGame();
+                mainMenu.gameComputer.dispose();
+                mainMenu.CreateAIComputerGame();
             }
         }
     }
